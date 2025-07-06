@@ -5,7 +5,9 @@ body {
     padding-top: 60px;
     color: #333;
     line-height: 1.6;
-    font-size: 18px; /* slightly larger for readability */
+    font-size: 18px;
+    overflow-x: hidden;
+    word-wrap: break-word;
 }
 
 /* Navigation bar */
@@ -24,17 +26,24 @@ nav ul {
     flex-wrap: wrap;
     padding: 0.8rem;
     margin: 0;
+    max-width: 100%;
 }
 
 nav li {
-    margin: 0 15px;
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 5px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s; /* smooth hover */
+    display: block;
+    padding: 5px 8px;
+    font-size: 0.95rem;
+    word-break: break-word;
+    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -53,7 +62,6 @@ h1, h2 {
     text-align: center;
 }
 
-/* Images responsive */
 section img {
     max-width: 100%;
     height: auto;
@@ -70,50 +78,69 @@ footer {
     margin-top: 2rem;
 }
 
-/* -------------------
-   Responsive tweaks
-------------------- */
+/* Hamburger menu styles */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: transform 0.3s ease;
+}
 
-/* Tablets and smaller */
+/* Rotate effect on toggle */
+.menu-toggle.rotate {
+    transform: rotate(90deg);
+}
+
+/* Responsive tweaks */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-out;
+        width: 100%;
+        background: #023e8a;
+    }
+
+    nav ul.active {
+        max-height: 500px;
+        transition: max-height 0.4s ease-in;
     }
 
     nav li {
-        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        border-bottom: 1px solid #005f99;
+    }
+
+    nav a {
+        padding: 1rem;
     }
 
     section {
         padding: 1.5rem;
     }
-
-    h1, h2 {
-        font-size: 2rem;
-    }
 }
 
-/* Small mobiles */
 @media (max-width: 480px) {
     body {
         font-size: 16px;
         padding-top: 50px;
     }
 
-    nav ul {
-        padding: 0.5rem;
-    }
-
-    nav a {
-        font-size: 1rem;
+    section {
+        padding: 1rem;
     }
 
     h1, h2 {
         font-size: 1.5rem;
-    }
-
-    section {
-        padding: 1rem;
     }
 }
