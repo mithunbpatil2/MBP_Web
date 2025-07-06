@@ -5,6 +5,7 @@ body {
     padding-top: 60px;
     color: #333;
     line-height: 1.6;
+    font-size: 18px; /* slightly larger for readability */
 }
 
 /* Navigation bar */
@@ -20,7 +21,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* make it wrap on smaller screens */
+    flex-wrap: wrap;
     padding: 0.8rem;
     margin: 0;
 }
@@ -33,6 +34,7 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s; /* smooth hover */
 }
 
 nav a:hover {
@@ -72,7 +74,7 @@ footer {
    Responsive tweaks
 ------------------- */
 
-/* For tablets and smaller */
+/* Tablets and smaller */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -84,14 +86,19 @@ footer {
     }
 
     section {
-        padding: 1rem;
+        padding: 1.5rem;
+    }
+
+    h1, h2 {
+        font-size: 2rem;
     }
 }
 
-/* For very small devices */
+/* Small mobiles */
 @media (max-width: 480px) {
     body {
         font-size: 16px;
+        padding-top: 50px;
     }
 
     nav ul {
@@ -105,5 +112,8 @@ footer {
     h1, h2 {
         font-size: 1.5rem;
     }
-}
 
+    section {
+        padding: 1rem;
+    }
+}
